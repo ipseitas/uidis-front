@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noEmit": false,          // REQUIRED: `"noEmit": false
+    "module": "esnext",       // REQUIRED: "module": "esnext"
+    "moduleResolution":"node",
+
+    "outDir": "./dist/scripts",
+    "rootDir": "./src/scripts",
+    "target": "ESNext",
+    "skipLibCheck": true,
+    "isolatedModules": true,
+  }
+}
