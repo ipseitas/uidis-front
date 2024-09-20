@@ -34,7 +34,7 @@ export function applyThemeOf(element: EventTarget | null) {
         themeFromURL(element.src).then(
             theme => applyTheme(theme, {
                 target: document.body,
-                dark: window.matchMedia("(prefers-color-scheme: dark)").matches
+                dark: false
             })
         )
     }
@@ -44,6 +44,6 @@ export function applyThemeColor(color: string) {
     let theme = themeFromSourceColor(argbFromHex(color));
     applyTheme(theme, {
         target: document.body,
-        dark: window.matchMedia("(prefers-color-scheme: dark)").matches
+        dark: false
     })
 }

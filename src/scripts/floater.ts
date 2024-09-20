@@ -241,7 +241,14 @@ export class Floater {
 
     public attach() {
         document.body.appendChild(this.node);
-        this.node.addEventListener("click", () => this.focus(), {
+        this.node.addEventListener("click", (event) => {
+            if (
+                event.target instanceof HTMLElement 
+                && event.target.id != "floater"
+            ){
+                this.focus()
+            }
+        }, {
             passive: true,
         });
         this.node.addEventListener("mouseleave", () => this.backoff(), {

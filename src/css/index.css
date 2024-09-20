@@ -4,14 +4,11 @@
   border: none;
   padding: 0;
   margin: 0;
-  text-rendering: geometricPrecision;
-  -webkit-font-smoothing: antialiased;
-  backface-visibility: hidden;
-  -webkit-font-smoothing:none;
+  text-rendering: optimizeSpeed;
 }
 :root {
   --bazier: cubic-bezier(.3,.6,0,.9);
-  --duration: 360ms;
+  --duration: 300ms;
 }
 #floater {
   position: absolute;
@@ -19,7 +16,6 @@
   padding: 1.2rem;
   width: fit-content;
 }
-
 
 #floater.top {
   top: 0;
@@ -59,14 +55,20 @@
 #floater.right:hover {
   padding-left: 6rem
 }
+/* #floater:hover .menubar {
+  will-change: grid-template-rows, box-shadow, background-color;
+} */
+
 #floater .menubar {
   display: grid;
   grid-template-rows: 0fr;
-  transition: var(--duration) all var(--bazier) 0ms;
+  transition: var(--duration) none var(--bazier) 0ms;
+  transition-property: background-color, box-shadow, grid-template-rows, margin-top, margin-bottom, opacity;
   margin: 0;
-  border-radius: 1rem;
+  border-radius: .36rem;
   width: fit-content;
   opacity: 0;
+  box-shadow: 0 0 0 .32rem transparent;
 }
 
 #floater .menubar.active.current {
@@ -86,7 +88,6 @@
   gap: .64rem;
   font-family: "SUSE", sans-serif;
   font-weight: 500;
-  border-radius: 1rem;
   font-style: normal;
   flex-wrap: wrap;
 }
@@ -98,12 +99,12 @@
 #floater .item {
   background-color: var(--md-sys-color-surface);
   padding: .36rem .64rem;
-  transition: var(--duration) all var(--bazier) 0ms;
+  transition: var(--duration) all var(--bazier) 96ms;
   cursor: pointer;
   -webkit-user-select: none;
   user-select: none;
   white-space: nowrap;
-  border-radius: 1rem;
+  border-radius: .32rem;
   display: flex;
   align-items: center;
   gap: .32rem;
@@ -208,13 +209,12 @@ body {
   left: 0;
   right: 0;
   transition: var(--duration) all var(--bazier) 0ms;
-  will-change: filter;
   background-position: center;
   background-size: cover;
 }
 
 #content.backoff {
-  filter: blur(.64rem);
+  filter: blur(.24rem);
   transition-duration: var(--duration);
 }
 
